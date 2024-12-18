@@ -86,6 +86,25 @@ DATABASES = {
     }
 }
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'core.authentication.ClientAuthentication',
+    ],
+}
+
+
+# CORS_ALLOWED_ORIGINS = [
+#     # Add all allowed client domains here. This should be dynamic in a production environment
+#     "https://client1.example.com",
+#     "https://client2.example.com",
+# ]
+
+# Or for a more flexible setup:
+CORS_ORIGIN_ALLOW_ALL = True
+# CORS_ORIGIN_WHITELIST = (
+#     'https://client1.example.com',
+#     'https://client2.example.com',
+# )
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators

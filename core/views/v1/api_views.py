@@ -1,12 +1,32 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from core.models import ImageModel
-from core.serializers import ImageModelSerializer
+from core.models import ImageModel, Horoscope
+from core.serializers import ImageModelSerializer, HoroscopeSerializer
+from core.authentication import ClientAuthentication
 
 class HomeView(APIView):
     def get(self, request):
         return Response({"message": "Came to api!"}, status=status.HTTP_200_OK)
+
+class HoroscopeView(APIView):
+    permission_classes = [ClientAuthentication]
+
+    def get(self, request):
+        date = request.query_params.get('date')  
+        zodiac_id = request.query_params.get('zodiac_id') 
+
+        horoscopes = Horoscope.objects.all()
+
+        if date:
+            horoscopes = horoscopes.filter(date=date)
+
+        if zodiac_id:
+            horoscopes = horoscopes.filter(zodiac_id=zodiac_id)
+            
+        serializer = HoroscopeSerializer(horoscopes, many=True)
+        
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
 
 class ImageModelView(APIView):
