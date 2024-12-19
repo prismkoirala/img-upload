@@ -95,6 +95,7 @@ REST_FRAMEWORK = {
 }
 
 CORS_ALLOW_ALL_HEADERS = True  # Allow any headers to be sent
+CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True  # If you're handling cookies or authentication tokens
 
 # CORS_ALLOWED_ORIGINS = [
@@ -104,7 +105,6 @@ CORS_ALLOW_CREDENTIALS = True  # If you're handling cookies or authentication to
 # ]
 
 # Or for a more flexible setup:
-CORS_ORIGIN_ALLOW_ALL = True
 # CORS_ORIGIN_WHITELIST = (
 #     'https://client1.example.com',
 #     'https://client2.example.com',
