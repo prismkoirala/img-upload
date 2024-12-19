@@ -94,8 +94,18 @@ REST_FRAMEWORK = {
     ],
 }
 
-CORS_ALLOW_ALL_HEADERS = True  # Allow any headers to be sent
-CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_ALL_ORIGINS = True  # Allows all domains
+
+# Allow all headers, including custom headers like 'X-Secret-Key'
+CORS_ALLOW_HEADERS = [
+    'content-type',
+    'accept',
+    'x-secret-key',  # Allow custom header here
+    'authorization',
+    'x-requested-with',
+    # Add any other headers you want to allow here
+]
+
 CORS_ALLOW_CREDENTIALS = True  # If you're handling cookies or authentication tokens
 
 # CORS_ALLOWED_ORIGINS = [
