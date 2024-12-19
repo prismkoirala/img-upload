@@ -94,6 +94,8 @@ REST_FRAMEWORK = {
     ],
 }
 
+CORS_ALLOW_ALL_HEADERS = True  # Allow any headers to be sent
+CORS_ALLOW_CREDENTIALS = True  # If you're handling cookies or authentication tokens
 
 # CORS_ALLOWED_ORIGINS = [
 #     # Add all allowed client domains here. This should be dynamic in a production environment
